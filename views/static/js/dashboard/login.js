@@ -14,38 +14,33 @@
     });
  }); 
 
-// $(function(){
-//     //1. 获取登录按钮并且注册点击事件
-//     $("#login-form").submit(function(){
-//         //2. 获取用户输入的用户名和密码
+ 
+//  第一种方法
+// $(function () {
+//      // 获取登录按钮并点击注册事件
+//     $("#login-form").submit(function () {
+//         // 获取到用户传入的值
 //         var userName = $("#username").val();
-//         var password = $("#password").val();
-//         //3. 发送ajax请求进行登录验证
+//         var passWord = $("#password").val();
+//         // 用户点击按钮，向后台发送请求
 //         $.ajax({
-//             url: "/api/login",
-//             type: "post",
-//             data: {
-//                 tc_name: userName,
-//                 tc_pass: password
+//             url:"/api/login",
+//             type:"post",
+//             data:{
+//                 tc_name:userName,
+//                 tc_pass:passWord
 //             },
-//             success: function(data){
+//             success:function(data){ 
+//                 console.log(data);   
 //                 if(data.code == 200){
-//                     //将用户的头像以及用户名信息存储到cookie当中
-//                     //方便首页进行使用
-
-//                     //cookie中只能存储字符串信息，
-//                     //直接存储对象，会发生 将[object Object]作为数据存储到cookie当中
-
-//                     //所以我们首先要将对象转成字符串，存入到cookie
-//                     $.cookie("userinfo", JSON.stringify(data.result), {path: "/"});
-//                     //跳转页面
+//                     // 将用户的头像和用户信息放入cookie中，首页中使用
+//                     // $.cookie("userinfo") 直接存储数据到cookie中打印出来的是[object Object]
+//                     $.cookie("userinfo",JSON.stringify(data.result),{path:"/"});
+//                     // 跳转页面
 //                     location.href = "/";
-//                 }
-//             }
-//         })
-
-//         //阻止表单的默认提交
+//                 }         
+//             }      
+//         });
 //         return false;
-//     })
-
-// })
+//     });
+// }); 
