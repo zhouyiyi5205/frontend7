@@ -5,15 +5,18 @@ define(["jquery","template","cookie"],function($,template){
         // 如果登录了，就获取登录页$.cookie的值，进行模板渲染。
         // 那么就不用if( "/dashboard/login"  != location.pathname){}这个来判断
         // 而是通过cookie的值里面有没有PHPSESSID。如果有就是登录过的，反之没登录过
-        if(!$.cookie("PHPSESSID")){
-            location.href ="/dashboard/login"
-        }else{
-            //从cookie中获取登录成功后存储的用户信息。
-            var userInfo = JSON.parse($.cookie("userinfo"));
-            //模板引擎
-            var html = template("profile-tpl",userInfo);
-            $("#userinfo").html(html);
-        }         
+        if( "/dashboard/login"  != location.pathname){
+            if(!$.cookie("PHPSESSID")){
+                location.href ="/dashboard/login";
+            }else{
+                //从cookie中获取登录成功后存储的用户信息。
+                var userInfo = JSON.parse($.cookie("userinfo"));
+                //模板引擎
+                var html = template("profile-tpl",userInfo);
+                $("#userinfo").html(html);
+            }
+        }
+                 
 
         // 2.点击按钮退出功能：
         $("#logout").click(function(){
