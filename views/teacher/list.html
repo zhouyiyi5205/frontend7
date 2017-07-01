@@ -22,7 +22,7 @@
                     <li class="active">讲师列表</li>
                 </ol>
                 <div class="page-title">
-                    <a href="./teacher_add.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
+                    <a href="/teacher/add" class="btn btn-success btn-sm pull-right">添加讲师</a>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -49,8 +49,6 @@
                         </thead>
                         <tbody id="teacherlist">
                             <!--挖坑-->
-
-
 
                         </tbody>
                     </table>
@@ -127,7 +125,7 @@
             <td>{{v.tc_cellphone}}</td>
             <td data-id="{{v.tc_id}}">
                 <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs btn-check">查 看</a>
-                <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
+                <a href="/teacher/add?id={{v.tc_id}}" class="btn btn-info btn-xs">编 辑</a>
                 {{if v.tc_status == 0 }}
                 <a href="javascript:;" class="btn btn-warning btn-xs btn-onoff" data-status="{{v.tc_status}}">注 销</a>
                 {{else}}
