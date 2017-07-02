@@ -1,4 +1,15 @@
-define(["jquery","template","cookie"],function($,template){
+define(["jquery","template","nprogress","cookie" ],function($,template,NProgress){
+	NProgress.start();
+	NProgress.done();
+
+	$(document).ajaxStart(function(){
+		NProgress.start();
+	})
+
+	$(document).ajaxStop(function(){
+		NProgress.done();
+	})
+
     $(function(){
         // 1.头像部分：利用cookie和template把值渲染进去
         // 完善登录页，如果当前没有登录，那就退回登录页，
