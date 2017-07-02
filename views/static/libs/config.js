@@ -7,11 +7,16 @@ require.config({
         "template":"assets/artTemplate/template",
         "bootstrap":"assets/bootstrap/js/bootstrap.min",
         "util":"static/js/util",
-        "nprogress":"assets/nprogress/nprogress"      
+        "nprogress":"assets/nprogress/nprogress",
+        "bootstrap-datepicker":"assets/bootstrap-datepicker/js/bootstrap-datepicker.min",
+        "bootstrap-datepicker-zh":"assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min"     
     },
     shim:{
         "bootstrap":{
             deps:["jquery"]
+        },
+        "bootstrap-datepicker-zh":{
+            deps:["bootstrap-datepicker"]
         }
     }
 });

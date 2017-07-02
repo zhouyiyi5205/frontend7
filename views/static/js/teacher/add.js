@@ -1,4 +1,4 @@
-define(["jquery", "template","util","form"],function($,template,util){
+define(["jquery", "template","util","form","bootstrap-datepicker","bootstrap-datepicker-zh"],function($,template,util){
     // 讲师列表中可以为编辑讲师地址栏中传入自定义属性id,
     // 这样编辑讲师中有id,添加讲师列表地址栏中没有参数，通过地址栏参数区分
     var query = util.getQueryObj();
@@ -16,6 +16,10 @@ define(["jquery", "template","util","form"],function($,template,util){
                 data.result.type = "edit";
                 var html = template("teacheraddTpl",data.result);
                 $(".teacher").html(html);
+                $("input[name=tc_join_date]").datepicker({
+                    format:"yyyy-mm-dd",
+                    language:"zh-CN"
+                })
             }
         });
     }else{ //添加讲师列     
@@ -25,6 +29,10 @@ define(["jquery", "template","util","form"],function($,template,util){
             type : "add"
         });
         $(".teacher").html(html);
+        $("input[name=tc_join_date]").datepicker({
+            format:"yyyy-mm-dd",
+            language:"zh-CN"
+        })
     }
     // 点击保存按钮注册点击事件
     $(".teacher").on("click","#btnSave",function(){      
