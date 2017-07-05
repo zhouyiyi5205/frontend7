@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <?php include "/views/public/css.html" ?>
+    <link rel="stylesheet" href="/views/assets/Jcrop/css/Jcrop.min.css">
 </head>
 <body>
     
@@ -14,6 +15,7 @@
         <div class="container-fluid">
             <!-- 头部 -->
             <?php include "/views/public/header.html" ?>
+
             <div class="body course-add">
                 <!-- 面包屑 -->
                 <ol class="breadcrumb">
@@ -21,17 +23,17 @@
                     <li class="active">课程添加</li>
                 </ol>
                 <div class="steps">
-                    <!--挖坑-->
+                   <!-- 挖个坑 -->
                 </div>
             </div>
         </div>
     </div>
-    <!--模板渲染-->
-    <script type="text/template" id="step2">
+
+    <script type="text/template" id="step2-tpl">
         <!-- 摘要 -->
         <div class="brief">
             <div class="thumb">
-                {{if cs_cover == ""}}
+                {{if cs_cover==""}}
                 <img src="/views/static/uploads/course_1.jpg" alt="">
                 {{else}}
                 <img src="{{cs_cover}}" alt="">
@@ -39,7 +41,7 @@
             </div>
             <dl class="info">
                 <dt>{{cs_name}}</dt>
-                <dd>讲师：{{tc_name}}</dd>              
+                <dd>讲师：{{tc_name}}</dd>
             </dl>
         </div>
         <!-- 步聚 -->
@@ -78,7 +80,6 @@
                     <img src="{{cs_cover_original}}" alt="">
                     {{/if}}
                 </div>
-
                 <p class="tips">
                     可上传jpg, gif, png格式文件, 图片建议尺寸大于300x150，文件大小不能超过2M。
                 </p>
@@ -86,16 +87,16 @@
                     <button id="uploadBtn" class="btn btn-success btn-sm">选择图片</button>
                 </div>
                 <div class="col-xs-2">
-                    <button id="cropBtn" class="btn btn-warning btn-sm" {{if cs_cover_original==""}}disabled{{/if}}>裁切图片</button>
+                    <button id="cropBtn"  class="btn btn-warning btn-sm" {{if cs_cover_original==""}}disabled{{/if}}>裁切图片</button>
                 </div>
             </div>
         </div>
+
     </script>
 
     <?php include "/views/public/js.html" ?>
-
     <script>
-        require(["static/js/course/step2"]);
+        require(["static/js/course/step2"])
     </script>
 </body>
 </html>
