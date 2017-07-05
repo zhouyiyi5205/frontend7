@@ -12,9 +12,9 @@ define(function() {
             } 
             return obj;       
         },
-        getQuery: function (key){
-            return getQueryObj()[key];
-        }
+		getQuery: function (key){
+			return this.getQueryObj()[key];
+		}	
     } 
 });
 

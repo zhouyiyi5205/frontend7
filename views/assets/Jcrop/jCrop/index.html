@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="jcrop/jcrop.css">
+	<style>
+		.jcrop-thumb {
+			top: -25px;
+			right: 20px;
+			border: 1px black solid;
+		}
+	</style>
+	<script src="jquery/jquery.js"></script>
+	<script src="jcrop/jcrop.js"></script>
+</head>
+<body>
+	<img src="1.jpg" alt="" id="x" >
+	<script>
+		$("#x").Jcrop({
+			width:400
+		},function(){
+			var jcrop_api = this;
+			thumbnail = this.initComponent('Thumbnailer', { width: 130, height: 130 });
+			this.ui.preview = thumbnail;
+	});
+	</script>
+</body>
+</html>

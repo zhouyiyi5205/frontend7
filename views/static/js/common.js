@@ -16,7 +16,7 @@ define(["jquery","template","nprogress","cookie" ],function($,template,NProgress
         // 如果登录了，就获取登录页$.cookie的值，进行模板渲染。
         // 那么就不用if( "/dashboard/login"  != location.pathname){}这个来判断
         // 而是通过cookie的值里面有没有PHPSESSID。如果有就是登录过的，反之没登录过
-        if( "/dashboard/login"  != location.pathname){
+        if("/dashboard/login" != location.pathname){
             if(!$.cookie("PHPSESSID")){
                 location.href ="/dashboard/login";
             }else{

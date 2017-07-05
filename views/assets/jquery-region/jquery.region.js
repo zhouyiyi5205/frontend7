@@ -23,6 +23,11 @@
         
         if(!options) return;
 
+        //数组 找到当前元素下的所有的select
+        //遍历select 将select 的id 还有他的data-id 拼接成
+        // p|1
+        // c|2
+        // d|d
         var parmas = [];
 
         $(this).find('select').each(function (key, val) {
@@ -32,6 +37,8 @@
         // 初始化参数
         var url = options.url || location.pathname,
             type = options.type || 'get',
+
+            //用来保存所有的地区数据的
             region = null,
             // map中的值要和region.json中的省/市/区县key保持一致
             map = ['p', 'c', 'd'];
@@ -66,13 +73,21 @@
             var options = [];
 
             // 有默认值的状态
-            for(var i=0; i<parmas.length; i++) {
+            //p|1  c|2  d|2
+            for(var i=0; i < parmas.length; i++) {
                 var tmp = parmas[i].split('|');
+                
+                //这是一个对象
                 var o = {};
 
+                //把数组中的元素的id值  p拿出来赋值给了 o对象 el属性
                 o['el'] = tmp[0];
+                //把数组中存的1  data-id 的值 拿出来赋值给 o对象 id属性
                 o['id'] = tmp[1];
+
+                //父级行政区的id
                 o['pid'] = '000000'; // 省级
+                
                 o['map'] = map[i];
                 
                 if(i > 0) {
