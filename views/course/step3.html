@@ -153,13 +153,14 @@
             </div>
             <div class="lessons">
                 <!--重新获取列表-->
-                {{include lesson-list-tpl}}
+                {{include "lessons-list-tpl"}}
+                
             </div>
         </div>
     </script>
 
     <!--重新获取列表渲染-->
-    <script type="text/template" id="lesson-list-tpl">
+    <script type="text/template" id="lessons-list-tpl">
         <ul class="list-unstyled">
             {{each lessons as item index}}
             <li>

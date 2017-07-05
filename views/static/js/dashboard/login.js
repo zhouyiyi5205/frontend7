@@ -1,4 +1,9 @@
  define(["jquery","form","cookie"], function($) {
+    //  动态获取头像
+    var userinfo = $.cookie("userinfo");
+    userinfo = userinfo && JSON.parse(userinfo);
+    $(".avatar>img").attr("src", userinfo?userinfo.tc_avatar:"/views/static/uploads/monkey.png");
+    
     $("#login-form").submit(function(){
         $(this).ajaxSubmit({
             url:"/api/login",

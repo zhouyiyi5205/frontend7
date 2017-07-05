@@ -48,7 +48,7 @@ define(['jquery','template','util','bootstrap','form'], function($, template,uti
                        data:{cs_id:csid},
                        success:function(data){
                            if(data.code ==200){
-                               var html = template("lesson-list-tpl",data.result);
+                               var html = template("lessons-list-tpl",data.result);
                                $(".lessons").html(html);
                                // 动态填写课时                             
                                $("dd:contains(课时：)").text("课时：" + data.result.lessons.length);
